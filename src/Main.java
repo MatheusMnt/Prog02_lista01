@@ -25,6 +25,8 @@ public class Main {
 
         usuario.adicionaDias( (long) 110);
 
+        usuario.AlteraMes(8);
+
 
 
         
