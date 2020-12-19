@@ -1,36 +1,25 @@
-
+package Questão4;
 
 import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
-import java.time.temporal.TemporalAccessor;
 
 public class Data {
 
     // atributos
-    private int dia;
-    private int mes;
-    private int ano;
     private LocalDate dataUsuario;
     private LocalDate hoje = LocalDate.now();
 
     // construtores
     public Data() {
-        this.dia = 1;
-        this.mes = 1;
-        this.ano = 2000;
-        this.dataUsuario = LocalDate.of(ano, mes, dia);
+        this.dataUsuario = LocalDate.of(2000, 01, 01);
 
     }
 
-    public Data(int dia, int mes, int ano) {
-        this.dia = dia;
-        this.mes = mes;
-        this.ano = ano;
-        this.dataUsuario = LocalDate.of(ano, mes, dia);
+    public Data(String dataEntrada) {
+        DateTimeFormatter parserData = DateTimeFormatter.ofPattern("dd/MM/uuuu");
+         this.dataUsuario = LocalDate.parse(dataEntrada, parserData);
     }
-
-    // metodos
 
     // escrevendo data
     public void printData() {
@@ -44,17 +33,24 @@ public class Data {
 
     }
 
-    // essa funçãp adiciona dias a data digitada pelo usuario
+    //a seguinte função adiciona dias a uma determinada data
     public void adicionaDias(Long dias) {
         LocalDate novaData = dataUsuario.plusDays(dias);
         System.out.println("\nA nova data com os dias adicionados eh: " + novaData);
     }
 
-    // essa função altera o mes da data digitada e formata no estilo dd/mmm/yyyy
-    //eu preciso alterear essa função
-    // é melhor criar uma função formartar e chama-la nessa outra função
-    public void AlteraMes(int mes){
-         Data dataAlterada = new Data(dia, mes, ano);
+    // a seguinte função altera o mes da data 
+    public void AlteraMes(int mesAlterado){
+        int diaMes = dataUsuario.getDayOfMonth();
+        int Ano = dataUsuario.getYear();
+        String novaData;
+
+        if (mesAlterado <10){
+            novaData = diaMes + "/" + 0 + mesAlterado + "/" + Ano;
+        } else {
+            novaData = diaMes + "/" + mesAlterado + "/" + Ano;
+        }
+            Data dataAlterada = new Data(novaData);
             DateTimeFormatter formatador = DateTimeFormatter.ofPattern("dd/MMM/yyyy");
             String resultado = formatador.format(dataAlterada.dataUsuario);
             System.out.println("\nalterado o mês temos: " + resultado);
