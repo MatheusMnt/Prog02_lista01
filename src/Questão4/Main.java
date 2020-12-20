@@ -11,12 +11,14 @@ public class Main {
 
         System.out.println("\nDigite o Dia no formato dd/MM/aaaa: ");
         String dataEntrada = data.nextLine();
-        
+
         Data dataDigitada = new Data(dataEntrada);
 
         dataDigitada.printData();
         dataDigitada.adicionaDias((long) 110);
         dataDigitada.AlteraMes(8);
+
+        data.close();
         
         
         

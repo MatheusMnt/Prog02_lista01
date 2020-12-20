@@ -26,33 +26,39 @@ public class Cliente {
     }
 
     //metodos
+    
+    //retorna o cpf do cliente
     public String getCPF(){
         return cpf;
     }
 
+    // associa um cpf ao cliente
     public void setCPF(String cpf){
         this.cpf = cpf;
     }
 
+    //retrona o nome do cliente
     public String getNome() {
         return nome;    
     }
 
+    //associa um nome ao cliente
     public void setNome(String nome){
         this.nome = nome;
     }
 
+    //retorna a data de nascimento 
     public LocalDate GetDataDeNascimento(){
         return dataDeNascimento;
     }
 
-    //provavelmente não vai funcionar
+    //relaciona uma string dadata de nascimento com uma localDate e associa ao cliente
     public void SetDataDeNascimento(String dataDeNascimento){
-
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MMM-yyyy");
-        LocalDate dataLocalDate = LocalDate.parse(dataDeNascimento, formatter);
+        DateTimeFormatter parserData = DateTimeFormatter.ofPattern("dd/MM/uuuu");
+        this.dataDeNascimento = LocalDate.parse(dataDeNascimento, parserData);
     }
 
+    //calcula e retorna a idade do cliente
     public int calcularIdade(){
         LocalDate hoje = LocalDate.now();
         int idade = (int) dataDeNascimento.until(hoje, ChronoUnit.YEARS);
