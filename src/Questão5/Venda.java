@@ -70,14 +70,15 @@ public class Venda {
         System.out.printf("\n");
         System.out.printf("Atendente: %s", atendente);
         System.out.printf("\n");
+        System.out.println();
         System.out.printf("Nome do Produto  | Preço\t| Quantidade |\tTotal\n");
 
         //divisória
          for (int i = 0; i < 60; i++){
              System.out.printf("-");
              }
-        System.out.println("\n");
-
+        System.out.println();
+        
         //listando produtos
         for (int i = 0; i < itensVenda.size(); i++){
             System.out.printf("%s\t | R$%10.2f |\t%5d|\tR$%8.2f\n", itensVenda.get(i).getProduto(), itensVenda.get(i).getPrecoProduto(), itensVenda.get(i).getQuantidade(), itensVenda.get(i).calcularTotal());

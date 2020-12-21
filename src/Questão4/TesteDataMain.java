@@ -4,7 +4,7 @@ package Questão4;
 import java.util.Scanner;
 
 
-public class Main {
+public class TesteDataMain {
      public static <LocaleDate> void main(String[] args) {
 
         Scanner data = new Scanner(System.in);

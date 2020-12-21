@@ -42,7 +42,7 @@ public class Data {
         LocalDate novaData = dataUsuario.plusDays(dias);
         DateTimeFormatter formatador = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         String resultado = formatador.format(novaData);
-        System.out.println("\nA nova data com os dias adicionados eh: " + resultado);
+        System.out.printf("\nA nova data com os %d dias adicionados eh: %s", dias, resultado);
     }
 
     //essa função altera o me da data digitada pelo usuario 
