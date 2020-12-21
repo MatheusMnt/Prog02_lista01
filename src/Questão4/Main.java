@@ -18,6 +18,10 @@ public class Main {
         dataDigitada.adicionaDias((long) 110);
         dataDigitada.AlteraMes(8);
 
+        dataDigitada.CalculaDiasUteis();
+        
+
+
         data.close();
         
         
